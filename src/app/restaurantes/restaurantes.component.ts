@@ -2,12 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { Restaurante } from './restaurante/restaurante.model';
 
 @Component({
-  selector: 'mt-restaurante',
-  templateUrl: './restaurante.component.html'
+  selector: 'mt-restaurantes',
+  templateUrl: './restaurantes.component.html'
 })
-export class RestauranteComponent implements OnInit {
+export class RestaurantesComponent implements OnInit {
 
-  restaurante: Restaurante[] = [
+  restaurantes: Restaurante[] = [
     {
       id: "bread-bakery",
       name: "Bread & Bakery",
