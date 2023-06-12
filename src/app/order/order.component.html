@@ -3,7 +3,7 @@
 
 <section class="content">
   <section class="invoice">
-    <form #form="ngForm" novalidate>
+    <form [formGroup]="orderForm" novalidate>
       <div class="row">
         <div class="col-xs-12">
           <h2 class="page-header">
@@ -12,27 +12,56 @@
         </div>
       </div>
 
-      <div class="row invoice-info">
+      <div class="row">
+        <div class="col-xs-12 col-sm-9">
+          <p class="lead">Seus Dados:</p>
+        </div>
+        <div class="col-xs-12 col-sm-3">
+          <span class="help-block pull-right has-error-block" *ngIf="orderForm.hasError('emailsNotMatch')">
+            <i class="fa fa-remove"></i>Emails não conferem!</span>
+        </div>
+
+        <div class="col-sm-6 col-xs-12">
+          <mt-input-container errorMessage="Campo Obrigatório e com 5 caracteres" label="Endereço">
+            <input formControlName="name" class='form-control' placeholder="Nome" autocomplete="off">
+          </mt-input-container>
+        </div>
+
+        <div class="col-sm-3 col-xs-6">
+          <mt-input-container errorMessage="E-mail inválido" label="E-mail">
+            <input type="text" class="form-control" formControlName="email" placeholder="E-mail" autocomplete="off">
+          </mt-input-container>
+        </div>
+
+        <div class="col-sm-3 col-xs-6">
+          <mt-input-container errorMessage="E-mail inválido" label="E-mail">
+            <input type="text" class="form-control" formControlName="emailConfirmation" placeholder="Confirmação do Email" autocomplete="off">
+          </mt-input-container>
+        </div>
+
+      </div>
+
+      <div class="row">
         <div class="col-xs-12">
           <p class="lead">Endereço de Entrega:</p>
         </div>
 
         <div class="col-sm-6 col-xs-12">
           <mt-input-container errorMessage="Campo Obrigatório e com 5 caracteres" label="Endereço">
-            <input name="Address" class='form-control' ngModel required minlength="5" placeholder="Endereço" autocomplete="off">
+            <input formControlName="address" class='form-control' placeholder="Endereço" autocomplete="off">
           </mt-input-container>
         </div>
 
         <div class="col-sm-3 col-xs-6">
           <mt-input-container errorMessage="Obrigatório e somente números">
-            <input type="text" class="form-control" name="number" required ngModel placeholder="Número" pattern="^[0-9]*$" autocomplete="off">
+            <input type="text" class="form-control" formControlName="number" placeholder="Número" pattern="^[0-9]*$" autocomplete="off">
           </mt-input-container>
         </div>
 
 
         <div class="col-sm-3 col-xs-6">
           <mt-input-container>
-            <input type="text" class="form-control" autocomplete="off" name="optionalAddress" ngModel placeholder="Complemento">
+            <input type="text" class="form-control" autocomplete="off" formControlName="optionalAddress" placeholder="Complemento">
           </mt-input-container>
         </div>
 
@@ -42,10 +71,7 @@
         <div class="col-xs-12">
           <p class="lead">Itens do Pedido:</p>
         </div>
-        <mt-order-items [items]="cartItems()" 
-          (increaseQty)="increaseQty($event)"
-          (decreaseQty)="decreaseQty($event)"
-          (remove)="remove($event)"></mt-order-items>
+        <mt-order-items [items]="cartItems()" (increaseQty)="increaseQty($event)" (decreaseQty)="decreaseQty($event)" (remove)="remove($event)"></mt-order-items>
         <!-- /.col -->
       </div>
       <!-- /.row -->
@@ -56,15 +82,14 @@
           <p class="lead">Formas de Pagamento:</p>
 
           <div class="form-group">
-            <mt-radio [options]="paymentOptions" name="paymentOptions" ngModel required></mt-radio>
+            <mt-radio [options]="paymentOptions" formControlName="paymentOptions"></mt-radio>
           </div>
 
         </div>
         <!-- /.col -->
         <div class="col-sm-6 col-xs-12">
           <p class="lead">Frete e Total:</p>
-            <mt-delivery-cost [delivery]="delivery"
-            [itemsValue]="itemsValue()"></mt-delivery-cost>
+          <mt-delivery-cost [delivery]="delivery" [itemsValue]="itemsValue()"></mt-delivery-cost>
         </div>
         <!-- /.col -->
       </div>
@@ -73,7 +98,7 @@
 
     <div class="row">
       <div class="col-xs-12">
-        <button (click)="checkOrder(form.value)" class="btn btn-success pull-right" [disabled]="!form.valid || cartItems().length === 0 ">
+        <button (click)="checkOrder(orderForm.value)" class="btn btn-success pull-right" [disabled]="!orderForm.valid || cartItems().length === 0 ">
           <i class="fa fa-credit-card"></i> Concluir Pedido
         </button>
       </div>
