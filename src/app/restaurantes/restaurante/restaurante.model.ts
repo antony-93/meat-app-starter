@@ -3,6 +3,8 @@ export interface Restaurante{
     name: string
     category: string
     deliveryEstimate: string
-    rating: number
+    ratting: number
     imagePath: string
+    hours?: string
+    about?: string
 }
