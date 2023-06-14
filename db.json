@@ -454,6 +454,22 @@
         }
       ],
       "id": 6
+    },
+    {
+      "name": "Juliana",
+      "email": "juliana@gmail.com",
+      "emailConfirmation": "juliana@gmail.com",
+      "address": "Rua Teodoro Smania",
+      "number": "30",
+      "optionalAddress": "Casa",
+      "paymentOptions": "MON",
+      "orderItems": [
+        {
+          "quantity": 2,
+          "menuId": "cup-cake"
+        }
+      ],
+      "id": 7
     }
   ]
 }

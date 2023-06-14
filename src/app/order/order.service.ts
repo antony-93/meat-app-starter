@@ -3,14 +3,15 @@ import { CartItem } from "app/restaurante-detalhe/shopping-cart/cart-item.model"
 import { ShoppingCartService } from "app/restaurante-detalhe/shopping-cart/shopping-cart.service";
 import { Observable } from "rxjs";
 import { Order } from "./order.model";
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { MEAT_API } from "app/app.api";
 
 
 @Injectable()
 export class OrderService {
 
-    constructor(private cartService: ShoppingCartService, private http: HttpClient) { }
+    constructor(private cartService: ShoppingCartService, 
+                private http: HttpClient) {}
 
     itemsValue(): number {
         return this.cartService.total()

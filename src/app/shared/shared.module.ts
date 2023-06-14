@@ -9,6 +9,11 @@ import { RestauranteService } from "app/restaurantes/restaurantes.service";
 import { OrderService } from "app/order/order.service";
 import { SnackbarComponent } from './messages/snackbar/snackbar.component';
 import { NotificationService } from "./messages/notification.service";
+import { LoginService } from "app/security/login/login.service";
+import { LoggedInGuard } from "app/security/loggedin.guard";
+import { LeaveOrderGuard } from "app/order/leave-order.guard";
+import { HTTP_INTERCEPTORS } from "@angular/common/http";
+import { AuthInterceptor } from "app/security/auth.interceptor";
 
 @NgModule({
     declarations: [InputComponent, RadioComponent, RatingComponent, SnackbarComponent],
@@ -18,10 +23,17 @@ import { NotificationService } from "./messages/notification.service";
         FormsModule, ReactiveFormsModule, SnackbarComponent]
 })
 export class SharedModule {
-    static forRoot(): ModuleWithProviders{
+    static forRoot(): ModuleWithProviders {
         return {
             ngModule: SharedModule,
-            providers: [ShoppingCartService, RestauranteService, OrderService, NotificationService]
+            providers: [ShoppingCartService,
+                LoginService,
+                RestauranteService,
+                OrderService,
+                NotificationService,
+                LoggedInGuard,
+                LeaveOrderGuard,
+                { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }]
         }
     }
 }
