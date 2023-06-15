@@ -6,7 +6,6 @@ import 'rxjs/add/operator/map'
 
 import { Restaurante } from "./restaurante/restaurante.model";
 import { MEAT_API } from "app/app.api";
-import { ErrorHandler } from 'app/app.errorr-handler';
 import { MenuItem } from 'app/restaurante-detalhe/menu-item/menu-item.model';
 
 @Injectable()

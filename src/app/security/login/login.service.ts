@@ -4,6 +4,8 @@ import { MEAT_API } from "app/app.api";
 import { Observable } from "rxjs";
 import { User } from "./user.model";
 
+import 'rxjs/add/operator/filter';
+
 import 'rxjs/add/operator/do'
 import { NavigationEnd, Router } from "@angular/router";
 
