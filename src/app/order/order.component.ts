@@ -4,7 +4,7 @@ import { OrderService } from './order.service';
 import { CartItem } from 'app/restaurante-detalhe/shopping-cart/cart-item.model';
 import { Order, OrderItem } from './order.model';
 import { Router } from '@angular/router';
-import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {tap} from 'rxjs/operators'
 
 @Component({
@@ -34,17 +34,15 @@ export class OrderComponent implements OnInit {
     private formBuilder: FormBuilder) { }
 
   ngOnInit() {
-    this.orderForm = new FormGroup({
-      name: new FormControl('', {
-        validators: [Validators.required, Validators.minLength(5)]
-      }),
+    this.orderForm = this.formBuilder.group({
+      name: this.formBuilder.control('', [Validators.required, Validators.minLength(5)]),
       email: this.formBuilder.control('', [Validators.required, Validators.pattern(this.emailPattern)]),
       emailConfirmation: this.formBuilder.control('', [Validators.required, Validators.pattern(this.emailPattern)]),
       address: this.formBuilder.control('', [Validators.required, Validators.minLength(5)]),
       number: this.formBuilder.control('', [Validators.required, Validators.pattern(this.numberPattern)]),
       optionalAddress: this.formBuilder.control(''),
       paymentOptions: this.formBuilder.control('', [Validators.required])
-    }, {validators: [OrderComponent.equalsTo], updateOn: 'blur'})
+    }, {validator: OrderComponent.equalsTo})
   }
 
   static equalsTo(group: AbstractControl): { [key: string]: boolean } {
@@ -96,5 +94,10 @@ export class OrderComponent implements OnInit {
         console.log(`Compra concluída ${orderId}`)
         this.orderService.clear()
       })
+  }
+
+  teste(){
+    console.log(this.orderForm.valid)
+    console.log(this.cartItems())
   }
 }

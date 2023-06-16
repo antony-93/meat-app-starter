@@ -98,6 +98,7 @@
 
     <div class="row">
       <div class="col-xs-12">
+        <button (click)="teste()">teste</button>
         <button (click)="checkOrder(orderForm.value)" class="btn btn-success pull-right" [disabled]="!orderForm.valid || cartItems().length === 0 ">
           <i class="fa fa-credit-card"></i> Concluir Pedido
         </button>
