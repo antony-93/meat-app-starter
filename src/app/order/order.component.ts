@@ -96,8 +96,4 @@ export class OrderComponent implements OnInit {
       })
   }
 
-  teste(){
-    console.log(this.orderForm.valid)
-    console.log(this.cartItems())
-  }
 }
