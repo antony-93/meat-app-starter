@@ -16,10 +16,7 @@ import 'core-js/es6/set';
 import 'core-js/es6/reflect';
 
 import 'core-js/es7/reflect';
-
-
-import 'intl'
-import 'intl/locale-data/jsonp/pt-BR.js'
+import 'zone.js/dist/zone';
 
 import 'web-animations-js/web-animations.min.js'
 

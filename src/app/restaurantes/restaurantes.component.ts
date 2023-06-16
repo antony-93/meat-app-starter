@@ -3,8 +3,8 @@ import { Restaurante } from './restaurante/restaurante.model';
 import { RestauranteService } from './restaurantes.service';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
-import { Observable, from } from 'rxjs';
-import { catchError, debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
+import { from } from 'rxjs';
+import { catchError, debounceTime, distinctUntilChanged, switchMap} from 'rxjs/operators';
 
 @Component({
   selector: 'mt-restaurantes',
