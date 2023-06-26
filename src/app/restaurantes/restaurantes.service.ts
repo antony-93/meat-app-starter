@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core'
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 import { Restaurante } from "./restaurante/restaurante.model";
@@ -11,12 +11,9 @@ export class RestauranteService{
 
     constructor(private http: HttpClient){}
 
-    restaurantes(search?: string): Observable<Restaurante[]> {
-      let params: HttpParams = undefined
-      if(search){
-        params = new HttpParams().set('q', search)
-      }
-      return this.http.get<Restaurante[]>(`${MEAT_API}/restaurants`, {params: params})
+    restaurantes(){
+      return this.http.get(`${MEAT_API}/restaurantes`)
+      .subscribe(resultado => console.log(resultado));
     }
 
     restaurantesById(id: string): Observable<Restaurante>{
