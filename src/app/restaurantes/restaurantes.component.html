@@ -19,7 +19,7 @@
 
 <section class="content">
   <div class="row">
-    <div *ngFor="let restaurante of restaurantes" class="col-sm-6 col-xs-12">
+    <div *ngFor="let restaurante of restaurantes.items" class="col-sm-6 col-xs-12">
       <mt-restaurante [restaurante]="restaurante"></mt-restaurante>
     </div>
 

@@ -1,5 +1,5 @@
 export interface Restaurante{
-    id: string
+    _id: string
     name: string
     category: string
     deliveryEstimate: string

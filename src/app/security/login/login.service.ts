@@ -24,7 +24,7 @@ export class LoginService{
     }
 
     login(email: string, password: string): Observable<User> {
-        return this.http.post<User>(`${MEAT_API}/login`, {email: email, password: password})
+        return this.http.post<User>(`${MEAT_API}/users/login`, {email: email, password: password})
         .pipe(tap(user => this.user = user))
     }
 

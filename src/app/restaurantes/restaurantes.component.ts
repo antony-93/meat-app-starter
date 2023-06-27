@@ -26,7 +26,7 @@ import { catchError, debounceTime, distinctUntilChanged, switchMap} from 'rxjs/o
 })
 export class RestaurantesComponent implements OnInit {
 
-  restaurantes: Restaurante[]
+  restaurantes: Restaurante[] = []
 
   searchBarState = 'hidden'
 
@@ -51,12 +51,12 @@ export class RestaurantesComponent implements OnInit {
       this.restaurantesService
         .restaurantes(searchTerm)
         .pipe(catchError(erro => from([]))))
-  )
-  .subscribe(restaurantes => (this.restaurantes = restaurantes));
-
-
+  ).subscribe(restaurantes => (this.restaurantes = restaurantes));
     this.restaurantesService.restaurantes()
-      .subscribe(restaurantes => this.restaurantes = restaurantes)
+    .subscribe(restaurantes => {
+      this.restaurantes = restaurantes;
+      console.log(this.restaurantes);
+    })    
   }
 
   toggleSearch() {
