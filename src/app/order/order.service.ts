@@ -39,7 +39,8 @@ export class OrderService {
     }
 
     checkOrder(order: Order): Observable<string> {
+        console.log(order)
         return this.http.post<Order>(`${MEAT_API}/orders`, order)
-        .pipe(map(order => order.id))
+        .pipe(map(order => order._id))
     }
 }
