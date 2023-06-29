@@ -24,7 +24,8 @@ import { HashLocationStrategy, LocationStrategy, registerLocaleData } from '@ang
 import { LoginComponent } from './security/login/login.component';
 import { UserDetailComponent } from './header/user-detail/user-detail.component';
 import { ApplicationErrorHandler } from './app.errorr-handler';
-import locatePt from '@angular/common/locales/pt' 
+import locatePt from '@angular/common/locales/pt';
+import { ShoppingComponent } from './shopping/shopping.component' 
 
 registerLocaleData(locatePt, 'pt')
 
@@ -43,7 +44,8 @@ registerLocaleData(locatePt, 'pt')
     OrderSummaryComponent,
     NotFoundComponent,
     LoginComponent,
-    UserDetailComponent
+    UserDetailComponent,
+    ShoppingComponent
   ],
   imports: [
     BrowserModule,

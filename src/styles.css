@@ -275,3 +275,8 @@ body {
   opacity: 0;
   max-height: 0;
 }
+
+.callout.callout-info{
+  background-color: #f8a499 !important;
+  border-color: #dd4b39;
+}

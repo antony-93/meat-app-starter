@@ -20,16 +20,34 @@ export class LoginComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit() {
+    this.doCreateLoginForm();
+    this.navigateTo = this.activatedRoute.snapshot.params['to'] || btoa('/')
+  }
+
+  //#region === FUNCOES DO FORMULARIO ===
+
+  doCreateLoginForm() {
     this.loginForm = this.fb.group({
       email: this.fb.control('', [Validators.required, Validators.email]),
       password: this.fb.control('', [Validators.required])
     })
-    this.navigateTo = this.activatedRoute.snapshot.params['to'] || btoa('/')
+  }
+  /*
+  doClearLoginForm() {
+    if (this.loginForm) {
+      this.loginForm.reset();
+      this.doCreateLoginForm();
+    }
   }
 
+  doSetLoginForm(login: any) {
+
+  }*/
+
+  //#endregion
+
   login() {
-    this.loginService.login(this.loginForm.value.email,
-      this.loginForm.value.password)
+    this.loginService.login(this.loginForm.value.email, this.loginForm.value.password)
       .subscribe(user => 
                     this.notificationService.notify(`Bem vindo, ${user.name}`),
                   response => 
@@ -38,5 +56,18 @@ export class LoginComponent implements OnInit {
                     this.router.navigate([atob(this.navigateTo)])
                   })
   }
+
+  /*doLogin(login: any) {
+    if (!login) {
+      this.doClearLoginForm
+    }
+
+    if (!this.loginForm.valid) {
+      this.doClearLoginForm
+    }
+
+    login(login.email, login.password)
+  }*/
+
 
 }

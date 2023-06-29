@@ -15,7 +15,26 @@ export class ReviewsComponent implements OnInit {
     private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.reviews = this.restauranteService.reviewsOfRestaurante(this.route.parent.snapshot.params['id'])
+    this.doLoadReviews(this.route.parent.snapshot.params['id'])
+  }
+
+
+  
+  doLoadReviews(restaurantId: string) {
+    console.log('== doLoadReviews ==', restaurantId)
+    if (restaurantId) this.doGetReviews(restaurantId)
+  }
+
+  private doGetReviews(restaurantId: string) {
+    console.log('== doGetReviews ==', restaurantId)
+    this.restauranteService.reviewsOfRestaurante(restaurantId).subscribe(res => {
+      console.log('== doGetReviews res==', res) 
+      this.reviews = res;
+    }, resError => {
+      console.log('== doGetReviews resError==', resError) 
+    }, () => {      
+      console.log('== doGetReviews reviews==', this.reviews)      
+    })
   }
 
 }

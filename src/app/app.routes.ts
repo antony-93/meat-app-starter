@@ -8,12 +8,14 @@ import { OrderSummaryComponent } from "./order-summary/order-summary.component"
 import { NotFoundComponent } from "./not-found/not-found.component"
 import { LoginComponent } from "./security/login/login.component"
 import { LoggedInGuard } from "./security/loggedin.guard"
+import { ShoppingComponent } from "./shopping/shopping.component"
 
 export const ROUTES: Routes = [
     {path: '', component: HomeComponent},
     {path: 'login/:to', component: LoginComponent},
     {path: 'login', component: LoginComponent},
     {path: 'about', loadChildren: './about/about.module#AboutModule'},
+    {path: 'shopping', component: ShoppingComponent},
     {path: 'restaurantes/:id', component: RestauranteDetalheComponent,
     children:[
         {path: '', redirectTo: 'menu', pathMatch: 'full'},
