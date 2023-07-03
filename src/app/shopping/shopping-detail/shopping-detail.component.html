@@ -1,0 +1,69 @@
+<div class="box-body">
+  <div class="table-responsive">
+    <table class="table no-margin">
+      <thead>
+        <tr>
+          <th>
+            <font style="vertical-align: inherit;">
+              <font style="vertical-align: inherit;">ID do pedido</font>
+            </font>
+          </th>
+          <th>
+            <font style="vertical-align: inherit;">
+              <font style="vertical-align: inherit;">Item</font>
+            </font>
+          </th>
+          <th>
+            <font style="vertical-align: inherit;">
+              <font style="vertical-align: inherit;">Valor do Item</font>
+            </font>
+          </th>
+          <th>
+            <font style="vertical-align: inherit;">
+              <font style="vertical-align: inherit;">Quantidade</font>
+            </font>
+          </th>
+          <th>
+            <font style="vertical-align: inherit;">
+              <font style="vertical-align: inherit;">Total</font>
+            </font>
+          </th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let order of orders.items">
+        <tr *ngFor="let items of order.orderItems">
+          <td><a href="pages/examples/invoice.html">
+              <font style="vertical-align: inherit;">
+                <font style="vertical-align: inherit;">{{order._id}}</font>
+              </font>
+            </a></td>
+          <td>
+            <font style="vertical-align: inherit;">
+              <font style="vertical-align: inherit;">{{items.menu.name}}</font>
+            </font>
+          </td>
+          <td>
+            <font style="vertical-align: inherit;">
+              <font style="vertical-align: inherit;">{{items.menu.price | currency: 'BRL': 'symbol'}}</font>
+            </font>
+          </td>
+          <td>
+            <font style="vertical-align: inherit;">
+              <font style="vertical-align: inherit;">{{items.quantity}}</font>
+            </font>
+          </td>
+          <td>
+            <font style="vertical-align: inherit;">
+              <font style="vertical-align: inherit;">asas</font>
+            </font>
+          </td>
+        </tr>
+      </tbody>
+      <tbody *ngIf="order?.length === 0">
+          <p class="lead text-center">
+            Não foram encontrados itens para a sua busca.
+          </p>
+      </tbody>
+    </table>
+  </div>
+</div>

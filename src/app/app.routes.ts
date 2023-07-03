@@ -15,7 +15,8 @@ export const ROUTES: Routes = [
     {path: 'login/:to', component: LoginComponent},
     {path: 'login', component: LoginComponent},
     {path: 'about', loadChildren: './about/about.module#AboutModule'},
-    {path: 'shopping', component: ShoppingComponent},
+    {path: 'shopping', component: ShoppingComponent,
+    canLoad: [LoggedInGuard], canActivate: [LoggedInGuard]},
     {path: 'restaurantes/:id', component: RestauranteDetalheComponent,
     children:[
         {path: '', redirectTo: 'menu', pathMatch: 'full'},

@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { LoginService } from './login.service';
 import { NotificationService } from 'app/shared/messages/notification.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Console } from '@angular/core/src/console';
 
 @Component({
   selector: 'mt-login',
@@ -32,7 +33,7 @@ export class LoginComponent implements OnInit {
       password: this.fb.control('', [Validators.required])
     })
   }
-  /*
+  
   doClearLoginForm() {
     if (this.loginForm) {
       this.loginForm.reset();
@@ -42,12 +43,12 @@ export class LoginComponent implements OnInit {
 
   doSetLoginForm(login: any) {
 
-  }*/
+  }
 
   //#endregion
 
-  login() {
-    this.loginService.login(this.loginForm.value.email, this.loginForm.value.password)
+  private login(email, password){
+    this.loginService.login(email, password)
       .subscribe(user => 
                     this.notificationService.notify(`Bem vindo, ${user.name}`),
                   response => 
@@ -57,7 +58,7 @@ export class LoginComponent implements OnInit {
                   })
   }
 
-  /*doLogin(login: any) {
+  doLogin(login: any) {
     if (!login) {
       this.doClearLoginForm
     }
@@ -66,8 +67,8 @@ export class LoginComponent implements OnInit {
       this.doClearLoginForm
     }
 
-    login(login.email, login.password)
-  }*/
+    this.login(login.email, login.password)
+  }
 
 
 }

@@ -5,7 +5,9 @@ import { CartItem } from 'app/restaurante-detalhe/shopping-cart/cart-item.model'
 import { Order, OrderItem } from './order.model';
 import { Router } from '@angular/router';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import {tap} from 'rxjs/operators'
+import { tap } from 'rxjs/operators'
+import { LoginService } from 'app/security/login/login.service';
+import { User } from 'app/security/login/user.model';
 
 @Component({
   selector: 'mt-order',
@@ -31,6 +33,7 @@ export class OrderComponent implements OnInit {
 
   constructor(private orderService: OrderService,
     private router: Router,
+    private loginService: LoginService,
     private formBuilder: FormBuilder) { }
 
   ngOnInit() {
@@ -42,7 +45,7 @@ export class OrderComponent implements OnInit {
       number: this.formBuilder.control('', [Validators.required, Validators.pattern(this.numberPattern)]),
       optionalAddress: this.formBuilder.control(''),
       paymentOptions: this.formBuilder.control('', [Validators.required])
-    }, {validator: OrderComponent.equalsTo})
+    }, { validator: OrderComponent.equalsTo })
   }
 
   static equalsTo(group: AbstractControl): { [key: string]: boolean } {
@@ -84,6 +87,7 @@ export class OrderComponent implements OnInit {
   }
 
   checkOrder(order: Order) {
+    console.log(order)
     order.orderItems = this.cartItems().map((item: CartItem) => new OrderItem(item.quantity, item.menuItem._id))
     this.orderService.checkOrder(order)
       .pipe(tap((orderId: string) => {
@@ -96,4 +100,19 @@ export class OrderComponent implements OnInit {
       })
   }
 
+  preencherEmail(){
+    if(this.loginService.isLoggedIn()){
+      return this.loginService.user.email
+    }
+  }
+
+  preencherName(){
+    if(this.loginService.isLoggedIn()){
+      return this.loginService.user.name
+    }
+  }
+  
+  isLoggedIn(): boolean{
+    return this.loginService.isLoggedIn()
+  }
 }

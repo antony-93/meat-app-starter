@@ -1,45 +1,44 @@
 <div class="navbar-custom-menu">
   <ul class="nav navbar-nav">
     <li class="dropdown user user-menu">
-      
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-          <img src="../../dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
-          <span class="hidden-xs">Alexander Pierce</span>
-        </a>
-        <ul class="dropdown-menu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" *ngIf="isLoggedIn(); else notLoggedIn">
+        <img src="../../../assets/img/user/user-icon.jpg" class="user-image" alt="User Image">
+        <span class="hidden-xs">{{user().name}}</span>
+      </a>
+      <ul class="dropdown-menu" *ngIf="isLoggedIn();">
 
-          <li class="user-header">
-            <img src="../../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
-            <p>
-              Alexander Pierce - Web Developer
-              <small>Member since Nov. 2012</small>
-            </p>
-          </li>
+        <li class="user-header">
+          <img src="../../../assets/img/user/user-icon.jpg" class="img-circle" alt="User Image">
+          <p>
+            {{user().name}} - {{user().profiles}}
+            <small>Member since Nov. 2012</small>
+          </p>
+        </li>
 
-          <li class="user-body">
-            <div class="row">
-              <div class="col-xs-4 text-center">
-                <a href="#">Followers</a>
-              </div>
-              <div class="col-xs-4 text-center">
-                <a [routerLink]="['/shopping']">Compras</a>
-              </div>
-              <div class="col-xs-4 text-center">
-                <a href="#">Friends</a>
-              </div>
+        <li class="user-body">
+          <div class="row">
+            <div class="col-xs-4 text-center">
+              <a href="#">Followers</a>
             </div>
-
-          </li>
-
-          <li class="user-footer">
-            <div class="pull-left">
-              <a href="#" class="btn btn-default btn-flat">Profile</a>
+            <div class="col-xs-4 text-center">
+              <a [routerLink]="['/shopping']">Compras</a>
             </div>
-            <div class="pull-right">
-              <a href="#" class="btn btn-default btn-flat">Sign out</a>
+            <div class="col-xs-4 text-center">
+              <a href="#">Friends</a>
             </div>
-          </li>
-        </ul>
+          </div>
+
+        </li>
+
+        <li class="user-footer">
+          <div class="pull-left">
+            <a href="#" class="btn btn-default btn-flat">Profile</a>
+          </div>
+          <div class="pull-right">
+            <a (click)="logout()" class="btn btn-default btn-flat">Sign out</a>
+          </div>
+        </li>
+      </ul>
       <ng-template #notLoggedIn>
         <a (click)="login()">Entrar</a>
       </ng-template>

@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, LOCALE_ID, NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { PreloadAllModules, RouterModule } from '@angular/router';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
 
 import { ROUTES } from './app.routes';
@@ -25,7 +25,8 @@ import { LoginComponent } from './security/login/login.component';
 import { UserDetailComponent } from './header/user-detail/user-detail.component';
 import { ApplicationErrorHandler } from './app.errorr-handler';
 import locatePt from '@angular/common/locales/pt';
-import { ShoppingComponent } from './shopping/shopping.component' 
+import { ShoppingComponent } from './shopping/shopping.component';
+import { ShoppingDetailComponent } from './shopping/shopping-detail/shopping-detail.component'
 
 registerLocaleData(locatePt, 'pt')
 
@@ -45,17 +46,18 @@ registerLocaleData(locatePt, 'pt')
     NotFoundComponent,
     LoginComponent,
     UserDetailComponent,
-    ShoppingComponent
+    ShoppingComponent,
+    ShoppingDetailComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    RouterModule.forRoot(ROUTES, {preloadingStrategy: PreloadAllModules}),
+    RouterModule.forRoot(ROUTES, { preloadingStrategy: PreloadAllModules }),
     SharedModule.forRoot()
   ],
-  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}, {provide: LOCALE_ID, useValue: 'pt-BR'},
-              {provide: ErrorHandler, useClass: ApplicationErrorHandler}],
+  providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }, { provide: LOCALE_ID, useValue: 'pt-BR' },
+  { provide: ErrorHandler, useClass: ApplicationErrorHandler }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
