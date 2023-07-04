@@ -88,7 +88,7 @@ export class OrderComponent implements OnInit {
 
   checkOrder(order: Order) {
     console.log(order)
-    order.orderItems = this.cartItems().map((item: CartItem) => new OrderItem(item.quantity, item.menuItem._id))
+    order.orderItems = this.cartItems().map((item: CartItem) => new OrderItem(item.quantity, item.menuItem))
     this.orderService.checkOrder(order)
       .pipe(tap((orderId: string) => {
         this.orderId = orderId

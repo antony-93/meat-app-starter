@@ -23,6 +23,10 @@ export class ShoppingDetailComponent implements OnInit {
     return this.loginService.user
   }
 
+  total(quantity, value){
+    return quantity * value
+  }
+
   doLoadOrders(email: string) {
     console.log('== doLoadOrders ==', email)
     if (email) this.doGetOrders(email)

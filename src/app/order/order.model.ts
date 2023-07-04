@@ -1,3 +1,5 @@
+import { MenuItem } from "app/restaurante-detalhe/menu-item/menu-item.model";
+
 class Order {
     constructor(
         public name: string,
@@ -12,7 +14,7 @@ class Order {
 }
 
 class OrderItem {
-    constructor(public quantity: number, public menuId: string){}
+    constructor(public quantity: number, public menu: MenuItem){}
 }
 
 export {Order, OrderItem}

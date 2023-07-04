@@ -30,7 +30,7 @@ export class RestauranteService {
   }
 
   menuOfRestaurants(id: string): Observable<MenuItem[]> {
-    return this.http.get<MenuItem[]>(`${MEAT_API}/restaurants/${id}/menu`)
+    return this.http.get<MenuItem[]>(`${MEAT_API}/menus?restaurant=${id}`)
   }
 
 }

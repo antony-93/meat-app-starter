@@ -10,13 +10,18 @@ import { Observable } from 'rxjs';
 })
 export class MenuComponent implements OnInit {
 
-  menu: Observable<MenuItem[]>
+  menu: MenuItem[] = []
 
   constructor(private restauranteService: RestauranteService,
     private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.menu = this.restauranteService.menuOfRestaurants(this.route.parent.snapshot.params['id'])
+    this.getMenu(this.route.parent.snapshot.params['id'])
+    console.log(this.menu)
+  }
+
+  private getMenu(id){
+    this.menu = this.restauranteService.menuOfRestaurants(id)  
   }
 
   addMenuItem(item: MenuItem){
