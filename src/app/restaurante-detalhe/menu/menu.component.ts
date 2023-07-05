@@ -16,12 +16,28 @@ export class MenuComponent implements OnInit {
     private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.getMenu(this.route.parent.snapshot.params['id'])
+    this.doMenu(this.route.parent.snapshot.params['id'])
     console.log(this.menu)
   }
 
-  private getMenu(id){
-    this.menu = this.restauranteService.menuOfRestaurants(id)  
+  doMenu(id){
+    if(id){
+      this.doGetMenu(id)
+    }else{
+      console.log('== doMenu Id ==', id)
+    }
+  }
+
+  private doGetMenu(restaurantId: string) {
+    console.log('== doGetMenu ==', restaurantId)
+    this.restauranteService.menuOfRestaurants(restaurantId).subscribe(menu => {
+      console.log('== doGetMenu menu==', menu) 
+      this.menu = menu;
+    }, menuError => {
+      console.log('== doGetMenu menuError==', menuError) 
+    }, () => {      
+      console.log('== doGetMenu menu==', this.menu)      
+    })
   }
 
   addMenuItem(item: MenuItem){

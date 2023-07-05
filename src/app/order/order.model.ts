@@ -2,8 +2,7 @@ import { MenuItem } from "app/restaurante-detalhe/menu-item/menu-item.model";
 
 class Order {
     constructor(
-        public name: string,
-        public email: string,
+        public user: string,
         public address: string,
         public number: number,
         public optionalAddress: string,

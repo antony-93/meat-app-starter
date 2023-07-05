@@ -2,7 +2,7 @@
   <h1>
     Todos os Restaurantes
     <a (click)="toggleSearch()" class="search-link pull-right">
-      <span *ngIf="iptSearch.value"><small>"{{iptSearch.value}}" </small></span><i class="fa fa-search"></i></a>
+      <span *ngIf="iptSearch.value"><small>"{{iptSearch.value}}"  </small></span><i class="fa fa-search"></i></a>
   </h1>
 
   <div class="row">
@@ -23,7 +23,7 @@
       <mt-restaurante [restaurante]="restaurante"></mt-restaurante>
     </div>
 
-    <div *ngIf="restaurantes?.length === 0" class="col-xs-12">
+    <div *ngIf="restaurantes.length === 0" class="col-xs-12">
       <p class="lead text-center">
         Não foram encontrados itens para a sua busca.
       </p>

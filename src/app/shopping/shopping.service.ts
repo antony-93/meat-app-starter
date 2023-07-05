@@ -11,7 +11,7 @@ export class ShoppingService {
   constructor(private http: HttpClient) { }
 
   ordersById(email: string): Observable<Order[]> {
-    return this.http.get<Order[]>(`${MEAT_API}/orders?user=${email}`)
+    return this.http.get<Order[]>(`${MEAT_API}/orders?email=${email}`)
   }
 
 }

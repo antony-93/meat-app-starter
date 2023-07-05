@@ -38,9 +38,7 @@ export class OrderComponent implements OnInit {
 
   ngOnInit() {
     this.orderForm = this.formBuilder.group({
-      name: this.formBuilder.control('', [Validators.required, Validators.minLength(5)]),
-      email: this.formBuilder.control('', [Validators.required, Validators.pattern(this.emailPattern)]),
-      emailConfirmation: this.formBuilder.control('', [Validators.required, Validators.pattern(this.emailPattern)]),
+      email: this.formBuilder.control(this.user().email),
       address: this.formBuilder.control('', [Validators.required, Validators.minLength(5)]),
       number: this.formBuilder.control('', [Validators.required, Validators.pattern(this.numberPattern)]),
       optionalAddress: this.formBuilder.control(''),
@@ -100,19 +98,14 @@ export class OrderComponent implements OnInit {
       })
   }
 
-  preencherEmail(){
+  user(): User{
+    return this.loginService.user
+  }
+
+  preencher(content: string){
     if(this.loginService.isLoggedIn()){
-      return this.loginService.user.email
+      return content
     }
   }
 
-  preencherName(){
-    if(this.loginService.isLoggedIn()){
-      return this.loginService.user.name
-    }
-  }
-  
-  isLoggedIn(): boolean{
-    return this.loginService.isLoggedIn()
-  }
 }

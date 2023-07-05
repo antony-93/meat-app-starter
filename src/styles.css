@@ -277,8 +277,9 @@ body {
 }
 
 .callout.callout-info{
-  background-color: #f8a499 !important;
+  background-color: #ffffff !important;
   border-color: #dd4b39;
+  color: #555 !important;
 }
 
 .box{

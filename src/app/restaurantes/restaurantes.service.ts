@@ -14,10 +14,10 @@ export class RestauranteService {
   restaurantes(search?: string): Observable<Restaurante[]> {
     let params: HttpParams = undefined
     if (search) {
-      params = new HttpParams()
-      params.set('q', search)
+      params = new HttpParams().set('q', search);
+      console.log(search)
     }
-    return this.http.get<Restaurante[]>(`${MEAT_API}/restaurants`, { params: params })
+    return this.http.get<Restaurante[]>(`${MEAT_API}/restaurants`, { params })
   }
 
   restaurantesById(id: string): Observable<Restaurante> {

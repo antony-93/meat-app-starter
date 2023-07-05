@@ -8,13 +8,13 @@
         <th>Preço</th>
         <th>Total</th>
       </tr>
-      <ng-container *ngFor="let order of orders.items">
-        <tr *ngFor="let item of order.orderItems">
-          <td>{{order._id}}</td>
-          <td>{{item.menu.name}}</td>
-          <td>{{item.quantity}}</td>
-          <td>{{item.menu.price | currency: 'BRL': 'symbol'}}</td>
-          <td>{{total(item.menu.price, item.quantity) | currency: 'BRL': 'symbol'}}</td>
+      <ng-container *ngFor="let order of orders?.items">
+        <tr *ngFor="let item of order?.orderItems">
+          <td>{{order?._id}}</td>
+          <td>{{item?.menu.name}}</td>
+          <td>{{item?.quantity}}</td>
+          <td>{{item?.menu.price | currency: 'BRL': 'symbol'}}</td>
+          <td>{{total(item?.menu.price, item?.quantity) | currency: 'BRL': 'symbol'}}</td>
         </tr>
       </ng-container>
     </tbody>
