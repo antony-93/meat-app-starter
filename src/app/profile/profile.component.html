@@ -1,31 +1,54 @@
-<aside class="main-sidebar">
-  <section class="sidebar">
-    <ul class="sidebar-menu tree" data-widget="tree">
-      <li class="header">NAVEGAÇÃO PRINCIPAL</li>
-      <li>
-        <a href="#">
-          <i class="fa fa-user"></i> <span>Dados Pessoais</span>
-          <span class="pull-right-container">
-            <i class="fa fa-angle-right pull-right"></i>
-          </span>
-        </a>
-      </li>
-      <li>
-        <a [routerLink]="['shopping']">
-          <i class="fa fa-shopping-cart"></i> <span>Compras</span>
-          <span class="pull-right-container">
-            <i class="fa fa-angle-right pull-right"></i>
-          </span>
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          <i class="fa fa-credit-card"></i> <span>Formas de Pagamento</span>
-          <span class="pull-right-container">
-            <i class="fa fa-angle-right pull-right"></i>
-          </span>
-        </a>
-      </li>
-    </ul>
-  </section>
-</aside>
+<section class="content">
+  <div class="row">
+    <aside class="main-sidebar">
+      <section class="sidebar">
+        <ul class="sidebar-menu tree" data-widget="tree">
+          <li class="header">NAVEGAÇÃO PRINCIPAL</li>
+          <li>
+            <a [routerLink]="['profile-overview']" routerLinkActive="router-link-active">
+              <i class="fa fa-home"></i> <span>Visão Geral da Conta</span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-right pull-right"></i>
+              </span>
+            </a>
+          </li>
+          <li>
+            <a [routerLink]="['shopping']">
+              <i class="fa fa-pencil"></i> <span>Editar Perfil</span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-right pull-right"></i>
+              </span>
+            </a>
+          </li>
+          <li>
+            <a [routerLink]="['change-password']">
+              <i class="fa fa-lock"></i> <span>Alterar Senha</span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-right pull-right"></i>
+              </span>
+            </a>
+          </li>
+          <li>
+            <a [routerLink]="['payment-options']">
+              <i class="fa fa-credit-card"></i> <span>Formas de Pagamento</span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-right pull-right"></i>
+              </span>
+            </a>
+          </li>
+          <li>
+            <a [routerLink]="['shopping']">
+              <i class="fa fa-shopping-cart"></i> <span>Compras</span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-right pull-right"></i>
+              </span>
+            </a>
+          </li>
+        </ul>
+      </section>
+    </aside>
+    <section class="content">
+      <router-outlet></router-outlet>
+    </section>
+  </div>
+</section>

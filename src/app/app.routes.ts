@@ -12,6 +12,10 @@ import { PedidosComponent } from "./profile/purchase-detail/pedidos/pedidos.comp
 import { RestauranteDetalheComponent } from "./restaurante-detalhe/restaurante-detalhe.component"
 import { MenuComponent } from "./restaurante-detalhe/menu/menu.component"
 import { ReviewsComponent } from "./restaurante-detalhe/reviews/reviews.component"
+import { ProfileOverviewComponent } from "./profile/profile-overview/profile-overview.component"
+import { PaymentOptionsComponent } from "./profile/payment-options/payment-options.component"
+import { ChangePasswordComponent } from "./profile/change-password/change-password.component"
+import { EditProfileComponent } from "./profile/edit-profile/edit-profile.component"
 
 export const ROUTES: Routes = [
     {path: '', component: HomeComponent},
@@ -20,7 +24,11 @@ export const ROUTES: Routes = [
     {path: 'about', loadChildren: './about/about.module#AboutModule'},
     {path: 'profile', component: ProfileComponent, 
     children:[
-        {path: '', redirectTo: 'shopping', pathMatch: 'full'},
+        {path: '', redirectTo: 'profile-overview', pathMatch: 'full'},
+        {path: 'profile-overview', component: ProfileOverviewComponent},
+        {path: 'edit-profile', component: EditProfileComponent},
+        {path: 'payment-options', component: PaymentOptionsComponent},
+        {path: 'change-password', component: ChangePasswordComponent},
         {path: 'shopping', component: ShoppingComponent},
         {path: 'shopping/:id', component: PurchaseDetailComponent, 
         children:[

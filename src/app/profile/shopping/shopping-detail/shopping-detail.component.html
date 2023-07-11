@@ -16,7 +16,7 @@
           <td>{{order?.address}} {{order?.number}}</td>
           <td>{{order?.orderItems?.length}}</td>
           <td>{{order?.total | currency: 'BRL': 'symbol'}}</td>
-          <td><a [routerLink]="['/shopping', order?._id]">Ver Mais</a></td>
+          <td><a [routerLink]="['/profile/shopping', order?._id]">Ver Mais</a></td>
         </tr>
       </ng-container>
     </tbody>

@@ -30,8 +30,10 @@ import { ShoppingCartComponent } from './restaurante-detalhe/shopping-cart/shopp
 import { ReviewsComponent } from './restaurante-detalhe/reviews/reviews.component';
 import { PurchaseDetailComponent } from './profile/purchase-detail/purchase-detail.component';
 import { PedidosComponent } from './profile/purchase-detail/pedidos/pedidos.component';
+import { ProfileOverviewComponent } from './profile/profile-overview/profile-overview.component';
+import { ChangePasswordComponent } from './profile/change-password/change-password.component';
 import { PaymentOptionsComponent } from './profile/payment-options/payment-options.component';
-import { PersonalDataComponent } from './profile/personal-data/personal-data.component';
+import { EditProfileComponent } from './profile/edit-profile/edit-profile.component';
 
 registerLocaleData(locatePt, 'pt')
 
@@ -55,9 +57,11 @@ registerLocaleData(locatePt, 'pt')
     ShoppingDetailComponent,
     PurchaseDetailComponent,
     PedidosComponent,
-    PaymentOptionsComponent,
     ProfileComponent,
-    PersonalDataComponent
+    ProfileOverviewComponent,
+    ChangePasswordComponent,
+    PaymentOptionsComponent,
+    EditProfileComponent
   ],
   imports: [
     BrowserModule,
