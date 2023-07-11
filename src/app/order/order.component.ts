@@ -25,6 +25,8 @@ export class OrderComponent implements OnInit {
 
   delivery: number = 8
 
+  currentDate = new Date()
+
   paymentOptions: RadioOption[] = [
     { label: 'Dinheiro', value: 'MON' },
     { label: 'Cartão de Débito', value: 'DEB' },
@@ -42,7 +44,9 @@ export class OrderComponent implements OnInit {
       address: this.formBuilder.control('', [Validators.required, Validators.minLength(5)]),
       number: this.formBuilder.control('', [Validators.required, Validators.pattern(this.numberPattern)]),
       optionalAddress: this.formBuilder.control(''),
-      paymentOptions: this.formBuilder.control('', [Validators.required])
+      paymentOptions: this.formBuilder.control('', [Validators.required]),
+      total: this.formBuilder.control(this.total()),
+      date: this.formBuilder.control(this.currentDate)
     }, { validator: OrderComponent.equalsTo })
   }
 
@@ -58,6 +62,10 @@ export class OrderComponent implements OnInit {
     }
 
     return undefined
+  }
+
+  total(): number{
+    return this.itemsValue() + this.delivery
   }
 
   itemsValue(): number {

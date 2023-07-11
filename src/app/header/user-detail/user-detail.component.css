@@ -15,6 +15,7 @@
     .navbar-custom-menu {
         display: block;
         position: absolute;
+        margin-left: auto;
         top: 0;
         right: 40px;
     }

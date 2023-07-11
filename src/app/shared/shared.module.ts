@@ -15,6 +15,7 @@ import { LeaveOrderGuard } from "app/order/leave-order.guard";
 import { HTTP_INTERCEPTORS } from "@angular/common/http";
 import { AuthInterceptor } from "app/security/auth.interceptor";
 import { ShoppingService } from "app/shopping/shopping.service";
+import { DeliveryCostComponent } from "app/order/delivery-cost/delivery-cost.component";
 
 @NgModule({
     declarations: [InputComponent, RadioComponent, RatingComponent, SnackbarComponent],
@@ -35,6 +36,7 @@ export class SharedModule {
                 NotificationService,
                 LoggedInGuard,
                 LeaveOrderGuard,
+                DeliveryCostComponent,
                 { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }]
         }
     }

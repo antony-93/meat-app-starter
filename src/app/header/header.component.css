@@ -1,0 +1,12 @@
+.logo{
+    width: 302px;
+}
+
+.left {
+    padding-right: 15px;
+    padding-left: 0;
+    margin-right: 0;
+    margin-left: auto;
+    left: 0;
+    position: absolute;
+}

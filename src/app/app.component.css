@@ -1,0 +1,7 @@
+.main-footer{
+    position: fixed;
+    width: 100%;
+}
+li>a ::placeholder{
+    background-color: #fff !important;
+}

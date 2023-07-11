@@ -6,7 +6,8 @@ import { User } from 'app/security/login/user.model';
 
 @Component({
   selector: 'mt-shopping-detail',
-  templateUrl: './shopping-detail.component.html'
+  templateUrl: './shopping-detail.component.html',
+  styleUrls: ['./shopping-detail.component.css']
 })
 export class ShoppingDetailComponent implements OnInit {
 
@@ -34,13 +35,13 @@ export class ShoppingDetailComponent implements OnInit {
 
   private doGetOrders(email: string) {
     console.log('== doLoadOrders ==', email)
-    this.shoppingService.ordersById(email).subscribe(ord => {
+    this.shoppingService.ordersByEmail(email).subscribe(ord => {
       console.log('== doLoadOrders == ord==', ord) 
       this.orders = ord;
     }, ordError => {
       console.log('== doLoadOrders == ordError==', ordError) 
     }, () => {      
-      console.log('== doLoadOrders == orders==', this.orders)      
+      console.log('== doLoadOrders == orders==', this.orders)     
     })
   }
   

@@ -9,13 +9,30 @@ import { NotFoundComponent } from "./not-found/not-found.component"
 import { LoginComponent } from "./security/login/login.component"
 import { LoggedInGuard } from "./security/loggedin.guard"
 import { ShoppingComponent } from "./shopping/shopping.component"
+import { PurchaseDetailComponent } from "./purchase-detail/purchase-detail.component"
+import { PedidosComponent } from "./purchase-detail/pedidos/pedidos.component"
+import { PaymentOptionsComponent } from "./purchase-detail/payment-options/payment-options.component"
+import { ProfileComponent } from "./profile/profile.component"
 
 export const ROUTES: Routes = [
     {path: '', component: HomeComponent},
     {path: 'login/:to', component: LoginComponent},
     {path: 'login', component: LoginComponent},
     {path: 'about', loadChildren: './about/about.module#AboutModule'},
+    {path: 'profile', component: ProfileComponent, 
+    children:[
+        {path: '', redirectTo: 'shopping', pathMatch: 'full'},
+        {path: 'shopping', component: ShoppingComponent}
+    ],
+    canLoad: [LoggedInGuard], canActivate: [LoggedInGuard]},
     {path: 'shopping', component: ShoppingComponent,
+    canLoad: [LoggedInGuard], canActivate: [LoggedInGuard]},
+    {path: 'shopping/:id', component: PurchaseDetailComponent, 
+    children:[
+        {path: '', redirectTo: 'pedidos', pathMatch: 'full'},
+        {path: 'pedidos', component: PedidosComponent},
+        {path: 'payment-options', component: PaymentOptionsComponent}
+    ],
     canLoad: [LoggedInGuard], canActivate: [LoggedInGuard]},
     {path: 'restaurantes/:id', component: RestauranteDetalheComponent,
     children:[

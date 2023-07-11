@@ -26,7 +26,11 @@ import { UserDetailComponent } from './header/user-detail/user-detail.component'
 import { ApplicationErrorHandler } from './app.errorr-handler';
 import locatePt from '@angular/common/locales/pt';
 import { ShoppingComponent } from './shopping/shopping.component';
-import { ShoppingDetailComponent } from './shopping/shopping-detail/shopping-detail.component'
+import { ShoppingDetailComponent } from './shopping/shopping-detail/shopping-detail.component';
+import { PurchaseDetailComponent } from './purchase-detail/purchase-detail.component';
+import { PedidosComponent } from './purchase-detail/pedidos/pedidos.component';
+import { PaymentOptionsComponent } from './purchase-detail/payment-options/payment-options.component';
+import { ProfileComponent } from './profile/profile.component';
 
 registerLocaleData(locatePt, 'pt')
 
@@ -47,7 +51,11 @@ registerLocaleData(locatePt, 'pt')
     LoginComponent,
     UserDetailComponent,
     ShoppingComponent,
-    ShoppingDetailComponent
+    ShoppingDetailComponent,
+    PurchaseDetailComponent,
+    PedidosComponent,
+    PaymentOptionsComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

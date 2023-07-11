@@ -1,0 +1,14 @@
+<div class="col-xs-12">
+  <div class="menu-item-info-box" *ngFor="let item of order?.orderItems">
+    <span class="menu-item-info-box-icon">
+      <img [src]="item.menu.imagePath"></span>
+  
+    <div class="menu-item-info-box-content">
+      <span class="menu-item-info-box-text">{{item.menu.name}}</span>
+      <span class="menu-item-info-box-detail">{{item.menu.restaurant.name}}</span>
+      <span class="menu-item-info-box-detail">{{item.menu.description}}</span>
+      <span class="menu-item-info-box-price">{{item.menu.price | currency: 'BRL': 'symbol'}}</span>
+    </div>
+    <!-- /.info-box-content -->
+  </div>
+</div>

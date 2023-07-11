@@ -1,0 +1,10 @@
+a{
+    color: #1e51dc;    
+}
+
+td, th{
+    text-align: center !important;
+}
+.td{
+    text-align: left !important;
+}

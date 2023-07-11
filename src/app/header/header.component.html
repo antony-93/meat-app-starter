@@ -1,27 +1,30 @@
-
-  <!-- Início do header -->
-  <header class="main-header">
-    <nav class="navbar navbar-static-top">
-      <div class="container">
+<header class="main-header">
+  <nav class="navbar navbar-static-top">
+    <div class="container container-extra">
+      <div class="left">
         <div class="navbar-header">
-          <a [routerLink]="['/']" routerLinkActive="router-link-active"  class="navbar-brand"><b>Meat</b></a>
+          <a [routerLink]="['']" class="logo">
+            <span class="logo-mini"><b>Meat</b></span>
+            <span class="logo-lg"><b>Meat</b></span>
+          </a>
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
             <i class="fa fa-bars"></i>
           </button>
         </div>
-  
+
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
           <ul class="nav navbar-nav">
-              <li routerLinkActive="active"><a [routerLink]="['/restaurantes']" routerLinkActive="router-link-active" >Restaurantes</a></li>
-              <li routerLinkActive="active"><a [routerLink]="['/about']" routerLinkActive="router-link-active" >Sobre</a></li>
+            <li routerLinkActive="active"><a [routerLink]="['/restaurantes']" routerLinkActive="router-link-active">Restaurantes</a></li>
+            <li routerLinkActive="active"><a [routerLink]="['/about']" routerLinkActive="router-link-active">Sobre</a></li>
           </ul>
         </div>
-        <!-- /.navbar-collapse -->
-  
-        <mt-user-detail></mt-user-detail>
-
       </div>
-    </nav>
-    </header>
-    <!-- Fim do header -->
+      <!-- /.navbar-collapse -->
+
+      <mt-user-detail></mt-user-detail>
+
+    </div>
+  </nav>
+</header>
+<!-- Fim do header -->

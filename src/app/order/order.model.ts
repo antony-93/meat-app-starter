@@ -8,7 +8,9 @@ class Order {
         public optionalAddress: string,
         public paymentOption: string,
         public orderItems: OrderItem[],
-        public _id: string
+        public total: string,
+        public _id: string,
+        public date: Date
         ){}
 }
 

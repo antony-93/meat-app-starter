@@ -1,0 +1,9 @@
+.main-sidebar,
+.left-side {
+    width: 300px;
+    border-right: 1px solid #d2d6de;
+}
+
+li :hover{
+    background-color: #bfc4cb !important;
+}

@@ -15,8 +15,17 @@ export class RestauranteDetalheComponent implements OnInit {
   constructor(private restauranteService: RestauranteService, private rouute: ActivatedRoute) { }
 
   ngOnInit() {
-    this.restauranteService.restaurantesById(this.rouute.snapshot.params['id'])
-    .subscribe(restaurante => this.restaurante = restaurante)
+    console.log('aqui')
+    this.doRestaurantes(this.rouute.snapshot.params['id'])
+  }
+
+  private doRestaurantes(id){
+    this.restauranteService.restaurantesById(id)
+    .subscribe(restaurante => {
+      console.log('restaurante ==' + restaurante)
+      this.restaurante = restaurante
+      console.log('this.restaurante ==' + this.restaurante)
+    })
   }
 
 }

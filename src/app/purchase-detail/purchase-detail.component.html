@@ -1,0 +1,45 @@
+<section class="content">
+
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="box box-solid">
+        <div class="box-header with-border">
+          <i class="fa fa-shopping-cart"></i>
+
+          <h3 class="box-title">{{order?._id}}</h3><span class="pull-right"></span>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body" *ngIf="order">
+          <div class="col-sm-3 col-xs-12">
+            <img class="box-img-detail" src="../../assets/img/404.png"/>
+          </div>
+
+          <dl class="col-sm-9 col-xs-12">
+            <dt>Endereço</dt>
+            <dd>{{order?.address}}</dd>
+            <dt>Complemento</dt>
+            <dd>{{order?.optionalAddress}}</dd>
+            <dt>Data</dt>
+            <dd>{{order?.date}}</dd>
+          </dl>
+        </div>
+        <!-- /.box-body -->
+        <div class="box-footer detail-footer">
+          <a class="pull-left detail-active" [routerLink]="['pedidos']" routerLinkActive="detail-active" >
+            Pedidos
+          </a>
+          <a class="pull-right" [routerLink]="['payment-options']"routerLinkActive="detail-active" >
+            Formas de Pagamento
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- /.col-xs-12 -->
+
+  </div>
+      <router-outlet></router-outlet>
+  <div class="row">
+    
+  </div>
+
+</section>
