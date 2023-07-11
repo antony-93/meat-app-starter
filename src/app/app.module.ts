@@ -12,11 +12,6 @@ import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { RestaurantesComponent } from './restaurantes/restaurantes.component'
 import { RestauranteComponent } from './restaurantes/restaurante/restaurante.component';
-import { RestauranteDetalheComponent } from './restaurante-detalhe/restaurante-detalhe.component';
-import { MenuComponent } from './restaurante-detalhe/menu/menu.component';
-import { MenuItemComponent } from './restaurante-detalhe/menu-item/menu-item.component';
-import { ShoppingCartComponent } from './restaurante-detalhe/shopping-cart/shopping-cart.component';
-import { ReviewsComponent } from './restaurante-detalhe/reviews/reviews.component';
 import { OrderSummaryComponent } from './order-summary/order-summary.component';
 import { SharedModule } from './shared/shared.module';
 import { NotFoundComponent } from './not-found/not-found.component';
@@ -25,12 +20,18 @@ import { LoginComponent } from './security/login/login.component';
 import { UserDetailComponent } from './header/user-detail/user-detail.component';
 import { ApplicationErrorHandler } from './app.errorr-handler';
 import locatePt from '@angular/common/locales/pt';
-import { ShoppingComponent } from './shopping/shopping.component';
-import { ShoppingDetailComponent } from './shopping/shopping-detail/shopping-detail.component';
-import { PurchaseDetailComponent } from './purchase-detail/purchase-detail.component';
-import { PedidosComponent } from './purchase-detail/pedidos/pedidos.component';
-import { PaymentOptionsComponent } from './purchase-detail/payment-options/payment-options.component';
+import { ShoppingComponent } from './profile/shopping/shopping.component';
+import { ShoppingDetailComponent } from './profile/shopping/shopping-detail/shopping-detail.component';
 import { ProfileComponent } from './profile/profile.component';
+import { RestauranteDetalheComponent } from './restaurante-detalhe/restaurante-detalhe.component';
+import { MenuComponent } from './restaurante-detalhe/menu/menu.component';
+import { MenuItemComponent } from './restaurante-detalhe/menu-item/menu-item.component';
+import { ShoppingCartComponent } from './restaurante-detalhe/shopping-cart/shopping-cart.component';
+import { ReviewsComponent } from './restaurante-detalhe/reviews/reviews.component';
+import { PurchaseDetailComponent } from './profile/purchase-detail/purchase-detail.component';
+import { PedidosComponent } from './profile/purchase-detail/pedidos/pedidos.component';
+import { PaymentOptionsComponent } from './profile/payment-options/payment-options.component';
+import { PersonalDataComponent } from './profile/personal-data/personal-data.component';
 
 registerLocaleData(locatePt, 'pt')
 
@@ -55,7 +56,8 @@ registerLocaleData(locatePt, 'pt')
     PurchaseDetailComponent,
     PedidosComponent,
     PaymentOptionsComponent,
-    ProfileComponent
+    ProfileComponent,
+    PersonalDataComponent
   ],
   imports: [
     BrowserModule,

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Order } from 'app/order/order.model';
-import { ShoppingService } from 'app/shopping/shopping.service';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { takeWhile } from 'rxjs/operators';
+import { ShoppingService } from 'app/profile/shopping/shopping.service';
 
 @Component({
   selector: 'mt-pedidos',

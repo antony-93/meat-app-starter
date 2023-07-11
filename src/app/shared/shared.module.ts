@@ -4,7 +4,6 @@ import { RadioComponent } from "./radio/radio.component";
 import { RatingComponent } from "./rating/rating.component";
 import { CommonModule } from "@angular/common";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { ShoppingCartService } from "app/restaurante-detalhe/shopping-cart/shopping-cart.service";
 import { RestauranteService } from "app/restaurantes/restaurantes.service";
 import { OrderService } from "app/order/order.service";
 import { SnackbarComponent } from './messages/snackbar/snackbar.component';
@@ -14,8 +13,9 @@ import { LoggedInGuard } from "app/security/loggedin.guard";
 import { LeaveOrderGuard } from "app/order/leave-order.guard";
 import { HTTP_INTERCEPTORS } from "@angular/common/http";
 import { AuthInterceptor } from "app/security/auth.interceptor";
-import { ShoppingService } from "app/shopping/shopping.service";
 import { DeliveryCostComponent } from "app/order/delivery-cost/delivery-cost.component";
+import { ShoppingCartService } from "app/restaurante-detalhe/shopping-cart/shopping-cart.service";
+import { ShoppingService } from "app/profile/shopping/shopping.service";
 
 @NgModule({
     declarations: [InputComponent, RadioComponent, RatingComponent, SnackbarComponent],

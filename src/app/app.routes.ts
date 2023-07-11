@@ -1,18 +1,17 @@
 import {Routes} from "@angular/router"
 import { HomeComponent } from "./home/home.component"
 import { RestaurantesComponent } from "./restaurantes/restaurantes.component"
-import {RestauranteDetalheComponent} from "./restaurante-detalhe/restaurante-detalhe.component"
-import { MenuComponent } from "./restaurante-detalhe/menu/menu.component"
-import { ReviewsComponent } from "./restaurante-detalhe/reviews/reviews.component"
 import { OrderSummaryComponent } from "./order-summary/order-summary.component"
 import { NotFoundComponent } from "./not-found/not-found.component"
 import { LoginComponent } from "./security/login/login.component"
 import { LoggedInGuard } from "./security/loggedin.guard"
-import { ShoppingComponent } from "./shopping/shopping.component"
-import { PurchaseDetailComponent } from "./purchase-detail/purchase-detail.component"
-import { PedidosComponent } from "./purchase-detail/pedidos/pedidos.component"
-import { PaymentOptionsComponent } from "./purchase-detail/payment-options/payment-options.component"
 import { ProfileComponent } from "./profile/profile.component"
+import { ShoppingComponent } from "./profile/shopping/shopping.component"
+import { PurchaseDetailComponent } from "./profile/purchase-detail/purchase-detail.component"
+import { PedidosComponent } from "./profile/purchase-detail/pedidos/pedidos.component"
+import { RestauranteDetalheComponent } from "./restaurante-detalhe/restaurante-detalhe.component"
+import { MenuComponent } from "./restaurante-detalhe/menu/menu.component"
+import { ReviewsComponent } from "./restaurante-detalhe/reviews/reviews.component"
 
 export const ROUTES: Routes = [
     {path: '', component: HomeComponent},
@@ -22,16 +21,12 @@ export const ROUTES: Routes = [
     {path: 'profile', component: ProfileComponent, 
     children:[
         {path: '', redirectTo: 'shopping', pathMatch: 'full'},
-        {path: 'shopping', component: ShoppingComponent}
-    ],
-    canLoad: [LoggedInGuard], canActivate: [LoggedInGuard]},
-    {path: 'shopping', component: ShoppingComponent,
-    canLoad: [LoggedInGuard], canActivate: [LoggedInGuard]},
-    {path: 'shopping/:id', component: PurchaseDetailComponent, 
-    children:[
-        {path: '', redirectTo: 'pedidos', pathMatch: 'full'},
-        {path: 'pedidos', component: PedidosComponent},
-        {path: 'payment-options', component: PaymentOptionsComponent}
+        {path: 'shopping', component: ShoppingComponent},
+        {path: 'shopping/:id', component: PurchaseDetailComponent, 
+        children:[
+            {path: '', redirectTo: 'pedidos', pathMatch: 'full'},
+            {path: 'pedidos', component: PedidosComponent}
+        ]},
     ],
     canLoad: [LoggedInGuard], canActivate: [LoggedInGuard]},
     {path: 'restaurantes/:id', component: RestauranteDetalheComponent,

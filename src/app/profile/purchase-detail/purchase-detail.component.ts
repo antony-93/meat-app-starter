@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Order } from 'app/order/order.model';
-import { ShoppingService } from 'app/shopping/shopping.service';
+import { ShoppingService } from '../shopping/shopping.service';
 
 @Component({
   selector: 'mt-purchase-detail',
