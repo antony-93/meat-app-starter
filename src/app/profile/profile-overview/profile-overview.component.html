@@ -1,3 +1,41 @@
-<p>
-  profile-overview works!
-</p>
+<article>
+  <h1>Visão geral da conta</h1>
+  <article>
+    <h3>Perfil</h3>
+    <section>
+      <div class="table-responsive">
+        <table class="table">
+          <tbody>
+            <tr>
+              <th style="width:50%">Nome de usuário</th>
+              <td>Antony Luiz Cechinel</td>
+            </tr>
+            <tr>
+              <th>E-mail</th>
+              <td>user.antony.cechinel@gmail.com</td>
+            </tr>
+            <tr>
+              <th>Data de Nascimento</th>
+              <td>22/01/2005</td>
+            </tr>
+            <tr>
+              <th>País ou região</th>
+              <td>Brasil</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+    <div>
+      <button type="button" [routerLink]="['/profile/edit-profile']" routerLinkActive="router-link-active" class="btn btn-block btn-info btn-lg">Editar Perfil</button>
+    </div>
+  </article>
+  <article>
+    <h3>Seus cartões</h3>
+    <div>
+      <h4>
+        Você não possui nenhuma forma de pagamento salva. Adicionar nova <a [routerLink]="['/profile/payment-options']">forma de pagamento?</a>
+      </h4>
+    </div>
+  </article>
+</article>

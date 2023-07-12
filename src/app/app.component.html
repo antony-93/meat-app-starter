@@ -3,7 +3,7 @@
   <mt-header></mt-header>
 
   <!-- Full Width Column -->
-  <div class="content-wrapper">
+  <div [ngClass]="{'profile-margin': profilePath}" class="content-wrapper align-item-center">
     <div class="container">
 
       <router-outlet></router-outlet>

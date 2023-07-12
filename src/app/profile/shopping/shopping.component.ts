@@ -10,7 +10,6 @@ export class ShoppingComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log('chamado com sucesso')
   }
 
 }

@@ -5,5 +5,13 @@
 }
 
 li :hover{
-    background-color: #bfc4cb !important;
+    background-color: #d8d8d8 !important;
+}
+
+li:hover {
+    color: #444444;
+}
+
+body{
+    color: #444444;
 }

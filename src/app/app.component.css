@@ -1,7 +1,11 @@
-.main-footer{
+.main-footer {
     position: fixed;
+    margin-left: 0;
     width: 100%;
 }
-li>a ::placeholder{
-    background-color: #fff !important;
+
+.profile-margin {
+    width: calc(100vw - 300px);
+    margin-left: 300px;
+    transition: transform 0.3s ease;
 }

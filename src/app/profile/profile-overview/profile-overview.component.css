@@ -1,0 +1,10 @@
+.table>tbody>tr>th{
+    border-top: 1px solid #444444 !important;
+}
+.table>tbody>tr>td{
+    border-top: 1px solid #444444 !important;
+}
+
+.btn-block{
+    width: auto;
+}

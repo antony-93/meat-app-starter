@@ -13,7 +13,7 @@
             </a>
           </li>
           <li>
-            <a [routerLink]="['shopping']">
+            <a [routerLink]="['edit-profile']">
               <i class="fa fa-pencil"></i> <span>Editar Perfil</span>
               <span class="pull-right-container">
                 <i class="fa fa-angle-right pull-right"></i>
@@ -47,8 +47,6 @@
         </ul>
       </section>
     </aside>
-    <section class="content">
-      <router-outlet></router-outlet>
-    </section>
+    <router-outlet></router-outlet>
   </div>
 </section>

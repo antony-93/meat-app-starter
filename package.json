@@ -14,15 +14,18 @@
   "private": true,
   "dependencies": {
     "@angular/animations": "6.0.0",
+    "@angular/cdk": "^16.1.4",
     "@angular/common": "6.0.0",
     "@angular/compiler": "6.0.0",
     "@angular/core": "6.0.0",
     "@angular/forms": "6.0.0",
+    "@angular/material": "^16.1.4",
     "@angular/platform-browser": "6.0.0",
     "@angular/platform-browser-dynamic": "6.0.0",
     "@angular/platform-server": "6.0.0",
     "@angular/router": "6.0.0",
     "admin-lte": "2.3.11",
+    "ajv": "6.0.0",
     "core-js": "2.5.4",
     "font-awesome": "4.7.0",
     "intl": "1.2.5",
@@ -31,8 +34,7 @@
     "rxjs": "6.0.0",
     "ts-helpers": "1.1.2",
     "web-animations-js": "2.2.5",
-    "zone.js": "0.9.0",
-    "ajv": "6.0.0"
+    "zone.js": "0.9.0"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^0.6.0",
